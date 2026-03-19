@@ -17,7 +17,7 @@ const Home = () => {
       <Header />
       <ExploreMenu category={category} setCategory={setCategory} />
       <FoodDisplay category={category} />
-      <AppDownload />
+      
 
       {/* About Section */}
       <div id="about-section">
@@ -32,6 +32,7 @@ const Home = () => {
       {/* Privacy Policy Section */}
       <div id="privacy-section">
         <PrivacyPolicy />
+        <AppDownload/>
       </div>
     </div>
   )
