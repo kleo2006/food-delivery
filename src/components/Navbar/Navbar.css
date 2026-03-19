@@ -104,18 +104,19 @@
     
 } */
 
-  .navbar {
+  /* ── Base Navbar ── */
+.navbar {
     display: flex;
     padding: 20px 0px;
     justify-content: space-between;
     align-items: center;
     position: relative;
 }
- 
+
 .navbar .logo {
     width: 150px;
 }
- 
+
 /* ── Desktop Menu ── */
 .navbar-menu {
     display: flex;
@@ -124,25 +125,25 @@
     gap: 20px;
     list-style: none;
 }
- 
+
 .navbar-menu a {
     text-decoration: none;
     color: #49557e;
     cursor: pointer;
 }
- 
+
 /* ── Right Section ── */
 .navbar-right {
     display: flex;
     align-items: center;
     gap: 20px;
 }
- 
+
 .navbar-right img {
     width: 24px;
     cursor: pointer;
 }
- 
+
 .navbar button {
     background: transparent;
     font-size: 16px;
@@ -153,33 +154,33 @@
     cursor: pointer;
     transition: 0.3s;
 }
- 
+
 .navbar button:hover {
     background-color: #fff4f2;
 }
- 
+
 .navbar .active {
     padding-bottom: 2px;
     border-bottom: 2px solid #49557e;
 }
- 
+
 /* ── Search Bar ── */
 .navbar-search-wrapper {
     position: relative;
     display: flex;
     align-items: center;
 }
- 
+
 .search-icon {
     width: 24px;
     cursor: pointer;
     transition: 0.2s;
 }
- 
+
 .search-icon.active-search {
     opacity: 0.5;
 }
- 
+
 .search-bar-container {
     display: flex;
     align-items: center;
@@ -196,7 +197,7 @@
     box-shadow: 0 4px 12px rgba(0,0,0,0.08);
     z-index: 100;
 }
- 
+
 .search-bar {
     border: none;
     outline: none;
@@ -205,27 +206,27 @@
     background: transparent;
     color: #333;
 }
- 
+
 .search-close {
     cursor: pointer;
     color: #aaa;
     font-size: 13px;
     flex-shrink: 0;
 }
- 
+
 .search-close:hover {
     color: tomato;
 }
- 
+
 /* ── Cart Icon ── */
 .navbar-search-icon {
     position: relative;
 }
- 
+
 .navbar-search-icon img {
     width: 24px;
 }
- 
+
 .navbar-search-icon .dot {
     position: absolute;
     min-width: 10px;
@@ -235,12 +236,12 @@
     top: -8px;
     right: -8px;
 }
- 
+
 /* ── Mobile Search Bar ── */
 .mobile-search-wrapper {
     width: 100%;
 }
- 
+
 .mobile-search-bar {
     width: 100%;
     padding: 10px 14px;
@@ -251,11 +252,11 @@
     color: #333;
     box-sizing: border-box;
 }
- 
+
 .mobile-search-bar:focus {
     border-color: tomato;
 }
- 
+
 /* ── Hamburger (hidden on desktop) ── */
 .hamburger {
     display: none;
@@ -266,7 +267,7 @@
     cursor: pointer;
     z-index: 1000;
 }
- 
+
 .hamburger .bar {
     display: block;
     width: 100%;
@@ -275,50 +276,50 @@
     border-radius: 3px;
     transition: 0.3s;
 }
- 
+
 /* ── Mobile Dropdown Menu (hidden on desktop) ── */
 .mobile-menu {
     display: none;
 }
- 
+
 /* ── Tablet (max 1050px) ── */
 @media (max-width: 1050px) {
     .navbar .logo {
         width: 140px;
     }
- 
+
     .navbar-menu {
         gap: 15px;
         font-size: 17px;
     }
- 
+
     .navbar-right {
         gap: 15px;
     }
- 
+
     .navbar button {
         padding: 8px 18px;
         font-size: 15px;
     }
 }
- 
+
 /* ── Mobile (max 750px) ── */
 @media (max-width: 750px) {
- 
+
     /* Hide desktop menu and sign in button */
     .navbar-menu {
         display: none;
     }
- 
+
     .navbar-right button {
         display: none;
     }
- 
+
     /* Show hamburger */
     .hamburger {
         display: flex;
     }
- 
+
     /* Mobile dropdown */
     .mobile-menu {
         display: flex;
@@ -334,7 +335,7 @@
         border-radius: 0 0 12px 12px;
         z-index: 999;
     }
- 
+
     .mobile-menu a {
         text-decoration: none;
         color: #49557e;
@@ -343,12 +344,12 @@
         padding: 6px 0;
         border-bottom: 1px solid #f0f0f0;
     }
- 
+
     .mobile-menu a.active {
         border-bottom: 2px solid tomato;
         color: tomato;
     }
- 
+
     .mobile-menu button {
         background: transparent;
         font-size: 16px;
@@ -360,22 +361,26 @@
         transition: 0.3s;
         width: fit-content;
     }
- 
+
     .mobile-menu button:hover {
         background-color: #fff4f2;
     }
- 
-    /* Keep logo, search & cart icons visible */
+
+    /* Hide desktop search bar on mobile - search is in hamburger menu */
+    .navbar-right .navbar-search-wrapper {
+        display: none;
+    }
+
+    /* Keep logo, cart icon visible */
     .navbar-right {
         gap: 15px;
     }
- 
+
     .navbar-right img {
         width: 22px;
     }
- 
+
     .navbar .logo {
         width: 120px;
     }
 }
- 
