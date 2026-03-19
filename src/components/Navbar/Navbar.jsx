@@ -114,12 +114,44 @@ const Navbar = ({ setShowLogin }) => {
                 <button onClick={() => setShowLogin(true)}>Sign in</button>
             </div>
 
-            {/* Hamburger Button (mobile only) */}
-            <div className="hamburger" onClick={toggleMobileMenu}>
-                <span className="bar"></span>
-                <span className="bar"></span>
-                <span className="bar"></span>
+            {/* Mobile Icons (search icon + hamburger) */}
+            <div className="mobile-icons">
+                <img
+                    src={assets.search_icon}
+                    alt="search"
+                    className="mobile-search-icon-btn"
+                    onClick={handleSearchIcon}
+                />
+                <div className="hamburger" onClick={toggleMobileMenu}>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                    <span className="bar"></span>
+                </div>
             </div>
+
+            {/* Mobile Full-Width Search Bar (below navbar) */}
+            {showSearch && (
+                <div className="mobile-search-fullwidth">
+                    <input
+                        type="text"
+                        placeholder="Search for dishes..."
+                        value={searchQuery}
+                        onChange={(e) => setSearchQuery(e.target.value)}
+                        onKeyDown={(e) => {
+                            if (e.key === "Enter") {
+                                e.preventDefault();
+                                navigate("/");
+                                setTimeout(() => {
+                                    const el = document.getElementById("food-display");
+                                    if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                }, 100);
+                            }
+                        }}
+                        autoFocus
+                    />
+                    <span onClick={handleSearchIcon}>✕</span>
+                </div>
+            )}
 
             {/* Mobile Dropdown Menu */}
             {mobileMenuOpen && (
@@ -128,26 +160,6 @@ const Navbar = ({ setShowLogin }) => {
                     <a href="#explore-menu" onClick={() => { setMenu("Menu"); closeMenu(); }} className={menu === "Menu" ? "active" : ""}>Menu</a>
                     <a href="#app-download" onClick={() => { setMenu("Mobile-App"); closeMenu(); }} className={menu === "Mobile-App" ? "active" : ""}>Mobile-App</a>
                     <a href="#footer" onClick={() => { setMenu("Contact us"); closeMenu(); }} className={menu === "Contact us" ? "active" : ""}>Contact us</a>
-                    <div className="mobile-search-wrapper">
-                        <input
-                            type="text"
-                            className="mobile-search-bar"
-                            placeholder="Search for dishes..."
-                            value={searchQuery}
-                            onChange={(e) => setSearchQuery(e.target.value)}
-                            onKeyDown={(e) => {
-                                if (e.key === "Enter") {
-                                    e.preventDefault();
-                                    navigate("/");
-                                    closeMenu();
-                                    setTimeout(() => {
-                                        const el = document.getElementById("food-display");
-                                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-                                    }, 100);
-                                }
-                            }}
-                        />
-                    </div>
                     <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
                 </div>
             )}
