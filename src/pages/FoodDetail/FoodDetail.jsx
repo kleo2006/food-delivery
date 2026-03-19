@@ -1,4 +1,4 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { useParams, useNavigate } from 'react-router-dom'
 import { StoreContext } from '../../context/StoreContext'
 import { assets } from '../../assets/frontend_assets/assets'
@@ -8,6 +8,11 @@ const FoodDetail = () => {
     const { id } = useParams();
     const { food_list, cartItems, addToCart, removeFromCart } = useContext(StoreContext);
     const navigate = useNavigate();
+
+    // Scroll to top when page loads
+    useEffect(() => {
+        window.scrollTo({ top: 0, behavior: "smooth" });
+    }, []);
 
     const item = food_list.find((food) => food._id === id);
 
