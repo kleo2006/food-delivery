@@ -86,6 +86,7 @@ const Navbar = ({ setShowLogin }) => {
                                 placeholder="Search for dishes..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
+                                onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
                                 autoFocus
                             />
                             <span className="search-close" onClick={handleSearchIcon}>✕</span>
@@ -125,6 +126,7 @@ const Navbar = ({ setShowLogin }) => {
                             placeholder="Search for dishes..."
                             value={searchQuery}
                             onChange={(e) => { setSearchQuery(e.target.value); navigate("/"); }}
+                            onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
                         />
                     </div>
                     <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
