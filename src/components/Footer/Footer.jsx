@@ -50,7 +50,7 @@ const Footer = () => {
           <h2>COMPANY</h2>
           <ul>
             <li onClick={scrollToTop}>Home</li>
-            <li onClick={() => scrollToSection("explore-menu")}>About us</li>
+            <li><Link to="/about">About us</Link></li>
             <li onClick={() => scrollToSection("app-download")}>Delivery</li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
           </ul>

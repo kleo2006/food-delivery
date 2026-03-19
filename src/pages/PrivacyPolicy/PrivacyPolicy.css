@@ -1,0 +1,106 @@
+.privacy {
+    margin: 60px 80px;
+}
+
+.privacy-back {
+    background: none;
+    border: 1px solid #49557e;
+    color: #49557e;
+    padding: 8px 20px;
+    border-radius: 50px;
+    font-size: 15px;
+    cursor: pointer;
+    margin-bottom: 40px;
+    transition: 0.3s;
+}
+
+.privacy-back:hover {
+    background-color: #fff4f2;
+    color: tomato;
+    border-color: tomato;
+}
+
+.privacy-container {
+    max-width: 800px;
+}
+
+.privacy-container h1 {
+    font-size: 42px;
+    font-weight: 700;
+    color: #262626;
+    margin-bottom: 8px;
+}
+
+.privacy-updated {
+    color: #aaa;
+    font-size: 14px;
+    margin-bottom: 50px;
+}
+
+.privacy-section {
+    margin-bottom: 40px;
+}
+
+.privacy-section h2 {
+    font-size: 22px;
+    font-weight: 600;
+    color: #262626;
+    margin-bottom: 12px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid #ffe5e0;
+}
+
+.privacy-section p {
+    font-size: 15px;
+    color: #676767;
+    line-height: 1.8;
+    margin-bottom: 12px;
+}
+
+.privacy-section ul {
+    padding-left: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.privacy-section ul li {
+    font-size: 15px;
+    color: #676767;
+    line-height: 1.6;
+}
+
+.privacy-section ul li a {
+    color: tomato;
+    text-decoration: none;
+}
+
+.privacy-section ul li a:hover {
+    text-decoration: underline;
+}
+
+/* ── Tablet ── */
+@media (max-width: 900px) {
+    .privacy {
+        margin: 40px 30px;
+    }
+
+    .privacy-container h1 {
+        font-size: 32px;
+    }
+}
+
+/* ── Mobile ── */
+@media (max-width: 650px) {
+    .privacy {
+        margin: 30px 15px;
+    }
+
+    .privacy-container h1 {
+        font-size: 26px;
+    }
+
+    .privacy-section h2 {
+        font-size: 18px;
+    }
+}

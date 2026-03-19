@@ -35,6 +35,8 @@ import PlaceHolder from './pages/PlaceOrder/PlaceHolder';
 import Footer from './components/Footer/Footer';
 import LoginPopup from './components/LoginPopup/LoginPopup';
 import FoodDetail from './pages/FoodDetail/FoodDetail';
+import About from './pages/About/About';
+import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 
 const App = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -49,6 +51,8 @@ const App = () => {
                     <Route path="/cart" element={<Cart />} />
                     <Route path="/order" element={<PlaceHolder />} />
                     <Route path="/food/:id" element={<FoodDetail />} />
+                    <Route path="/about" element={<About />} />
+                    <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                 </Routes>
             </div>
             <Footer />
