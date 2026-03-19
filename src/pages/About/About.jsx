@@ -1,14 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./About.css"
 import { assets } from '../../assets/frontend_assets/assets'
 import { useNavigate } from 'react-router-dom'
 
 const About = () => {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
 
     return (
         <div className="about">

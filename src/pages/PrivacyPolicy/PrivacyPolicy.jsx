@@ -1,18 +1,10 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./PrivacyPolicy.css"
-import { useNavigate } from 'react-router-dom'
 
 const PrivacyPolicy = () => {
-    const navigate = useNavigate();
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
 
     return (
         <div className="privacy">
-            <button className="privacy-back" onClick={() => navigate(-1)}>← Back</button>
-
             <div className="privacy-container">
                 <h1>Privacy Policy</h1>
                 <p className="privacy-updated">Last updated: March 2026</p>

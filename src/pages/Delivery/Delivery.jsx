@@ -1,13 +1,9 @@
-import React, { useEffect } from 'react'
+import React from 'react'
 import "./Delivery.css"
 import { useNavigate } from 'react-router-dom'
 
 const Delivery = () => {
     const navigate = useNavigate();
-
-    useEffect(() => {
-        window.scrollTo({ top: 0, behavior: "smooth" });
-    }, []);
 
     return (
         <div className="delivery">

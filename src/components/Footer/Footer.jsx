@@ -1,7 +1,7 @@
 import React from 'react'
 import "./Footer.css"
 import { assets } from '../../assets/frontend_assets/assets'
-import { Link, useNavigate } from 'react-router-dom'
+import { useNavigate } from 'react-router-dom'
 
 const Footer = () => {
   const navigate = useNavigate();
@@ -42,9 +42,9 @@ const Footer = () => {
           <h2>COMPANY</h2>
           <ul>
             <li onClick={scrollToTop}>Home</li>
-            <li><Link to="/about">About us</Link></li>
-            <li><Link to="/delivery">Delivery</Link></li>
-            <li><Link to="/privacy-policy">Privacy Policy</Link></li>
+            <li><a href="#about-section">About us</a></li>
+            <li><a href="#delivery-section">Delivery</a></li>
+            <li><a href="#privacy-section">Privacy Policy</a></li>
           </ul>
         </div>
 
