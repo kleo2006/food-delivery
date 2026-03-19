@@ -1,10 +1,18 @@
 import React from 'react'
 import "./About.css"
 import { assets } from '../../assets/frontend_assets/assets'
-import { useNavigate } from 'react-router-dom'
 
 const About = () => {
-    const navigate = useNavigate();
+
+    const scrollToMenu = () => {
+        const el = document.getElementById("explore-menu");
+        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    }
+
+    const scrollToFood = () => {
+        const el = document.getElementById("food-display");
+        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    }
 
     return (
         <div className="about">
@@ -14,7 +22,7 @@ const About = () => {
                 <div className="about-hero-text">
                     <h1>About <span>Tomato</span></h1>
                     <p>We are passionate about connecting people with the best local food, delivered fast and fresh to their door.</p>
-                    <button onClick={() => navigate("/")}>Explore Our Menu</button>
+                    <button onClick={scrollToMenu}>Explore Our Menu</button>
                 </div>
                 <div className="about-hero-image">
                     <img src={assets.header_img} alt="about hero" />
@@ -71,7 +79,7 @@ const About = () => {
             <div className="about-cta">
                 <h2>Ready to order?</h2>
                 <p>Browse our menu and get your favorite meal delivered in minutes.</p>
-                <button onClick={() => navigate("/")}>Order Now</button>
+                <button onClick={scrollToFood}>Order Now</button>
             </div>
 
         </div>

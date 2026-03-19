@@ -1,9 +1,12 @@
 import React from 'react'
 import "./Delivery.css"
-import { useNavigate } from 'react-router-dom'
 
 const Delivery = () => {
-    const navigate = useNavigate();
+
+    const scrollToFood = () => {
+        const el = document.getElementById("food-display");
+        if (el) window.scrollTo({ top: el.offsetTop - 80, behavior: "smooth" });
+    }
 
     return (
         <div className="delivery">
@@ -12,7 +15,7 @@ const Delivery = () => {
             <div className="delivery-hero">
                 <h1>Fast & Fresh <span>Delivery</span></h1>
                 <p>From our kitchen to your door — hot, fresh, and on time. Every time.</p>
-                <button onClick={() => navigate("/")}>Order Now</button>
+                <button onClick={scrollToFood}>Order Now</button>
             </div>
 
             {/* How It Works */}
@@ -96,7 +99,7 @@ const Delivery = () => {
             <div className="delivery-cta">
                 <h2>Ready to get your food delivered?</h2>
                 <p>Browse our menu and place your order in just a few clicks.</p>
-                <button onClick={() => navigate("/")}>Order Now 🚀</button>
+                <button onClick={scrollToFood}>Order Now 🚀</button>
             </div>
 
         </div>
