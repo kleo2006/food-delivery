@@ -58,7 +58,7 @@ const FoodItem = ({ id, name, description, price, image }) => {
 
             <div className="food-item-info">
                 <div className="food-item-rating">
-                    <p>{name}</p>
+                    <p onClick={() => navigate(`/food/${id}`)} style={{cursor: "pointer"}}>{name}</p>
                     <img src={assets.rating_starts} alt="rating" />
                 </div>
                 <p className="food-item-desc">{description}</p>
