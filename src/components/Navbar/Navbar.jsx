@@ -31,24 +31,35 @@
 import React, { useContext, useState } from 'react';
 import "./Navbar.css";
 import { assets } from '../../assets/frontend_assets/assets';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { StoreContext } from '../../context/StoreContext';
- 
-const Navbar = ({setShowLogin}) => {
+
+const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
-    const { getTotalCartAmount } = useContext(StoreContext);
- 
+    const [showSearch, setShowSearch] = useState(false);
+    const { getTotalCartAmount, searchQuery, setSearchQuery } = useContext(StoreContext);
+    const navigate = useNavigate();
+
     const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
     const closeMenu = () => setMobileMenuOpen(false);
- 
+
+    const handleSearchIcon = () => {
+        setShowSearch(!showSearch);
+        if (showSearch) {
+            setSearchQuery("");
+        } else {
+            navigate("/");
+        }
+    };
+
     return (
         <div className="navbar">
             {/* Logo */}
             <Link to="/" onClick={closeMenu}>
                 <img src={assets.logo} alt="navbar" className="logo" />
             </Link>
- 
+
             {/* Desktop Menu */}
             <ul className="navbar-menu">
                 <Link to="/" onClick={() => setMenu("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
@@ -56,26 +67,50 @@ const Navbar = ({setShowLogin}) => {
                 <a href="#app-download" onClick={() => setMenu("Mobile-App")} className={menu === "Mobile-App" ? "active" : ""}>Mobile-App</a>
                 <a href="#footer" onClick={() => setMenu("Contact us")} className={menu === "Contact us" ? "active" : ""}>Contact us</a>
             </ul>
- 
+
             {/* Right Icons */}
             <div className="navbar-right">
-                <img src={assets.search_icon} alt="search icon" />
+                {/* Search */}
+                <div className="navbar-search-wrapper">
+                    <img
+                        src={assets.search_icon}
+                        alt="search icon"
+                        className={`search-icon ${showSearch ? "active-search" : ""}`}
+                        onClick={handleSearchIcon}
+                    />
+                    {showSearch && (
+                        <div className="search-bar-container">
+                            <input
+                                type="text"
+                                className="search-bar"
+                                placeholder="Search for dishes..."
+                                value={searchQuery}
+                                onChange={(e) => setSearchQuery(e.target.value)}
+                                autoFocus
+                            />
+                            <span className="search-close" onClick={handleSearchIcon}>✕</span>
+                        </div>
+                    )}
+                </div>
+
+                {/* Cart */}
                 <div className="navbar-search-icon">
                     <Link to="/cart">
                         <img src={assets.basket_icon} alt="basket" />
                     </Link>
                     <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
                 </div>
+
                 <button onClick={() => setShowLogin(true)}>Sign in</button>
             </div>
- 
+
             {/* Hamburger Button (mobile only) */}
             <div className="hamburger" onClick={toggleMobileMenu}>
-                <span className={mobileMenuOpen ? "bar open" : "bar"}></span>
-                <span className={mobileMenuOpen ? "bar open" : "bar"}></span>
-                <span className={mobileMenuOpen ? "bar open" : "bar"}></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
+                <span className="bar"></span>
             </div>
- 
+
             {/* Mobile Dropdown Menu */}
             {mobileMenuOpen && (
                 <div className="mobile-menu">
@@ -83,11 +118,20 @@ const Navbar = ({setShowLogin}) => {
                     <a href="#explore-menu" onClick={() => { setMenu("Menu"); closeMenu(); }} className={menu === "Menu" ? "active" : ""}>Menu</a>
                     <a href="#app-download" onClick={() => { setMenu("Mobile-App"); closeMenu(); }} className={menu === "Mobile-App" ? "active" : ""}>Mobile-App</a>
                     <a href="#footer" onClick={() => { setMenu("Contact us"); closeMenu(); }} className={menu === "Contact us" ? "active" : ""}>Contact us</a>
+                    <div className="mobile-search-wrapper">
+                        <input
+                            type="text"
+                            className="mobile-search-bar"
+                            placeholder="Search for dishes..."
+                            value={searchQuery}
+                            onChange={(e) => { setSearchQuery(e.target.value); navigate("/"); }}
+                        />
+                    </div>
                     <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
                 </div>
             )}
         </div>
     );
 }
- 
+
 export default Navbar;
