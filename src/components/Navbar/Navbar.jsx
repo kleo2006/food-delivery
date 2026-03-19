@@ -86,7 +86,16 @@ const Navbar = ({ setShowLogin }) => {
                                 placeholder="Search for dishes..."
                                 value={searchQuery}
                                 onChange={(e) => setSearchQuery(e.target.value)}
-                                onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+                                onKeyDown={(e) => {
+                                    if (e.key === "Enter") {
+                                        e.preventDefault();
+                                        navigate("/");
+                                        setTimeout(() => {
+                                            const el = document.getElementById("food-display");
+                                            if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                        }, 100);
+                                    }
+                                }}
                                 autoFocus
                             />
                             <span className="search-close" onClick={handleSearchIcon}>✕</span>
@@ -125,8 +134,18 @@ const Navbar = ({ setShowLogin }) => {
                             className="mobile-search-bar"
                             placeholder="Search for dishes..."
                             value={searchQuery}
-                            onChange={(e) => { setSearchQuery(e.target.value); navigate("/"); }}
-                            onKeyDown={(e) => e.key === "Enter" && e.preventDefault()}
+                            onChange={(e) => setSearchQuery(e.target.value)}
+                            onKeyDown={(e) => {
+                                if (e.key === "Enter") {
+                                    e.preventDefault();
+                                    navigate("/");
+                                    closeMenu();
+                                    setTimeout(() => {
+                                        const el = document.getElementById("food-display");
+                                        if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
+                                    }, 100);
+                                }
+                            }}
                         />
                     </div>
                     <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
