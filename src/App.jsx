@@ -37,6 +37,7 @@ import LoginPopup from './components/LoginPopup/LoginPopup';
 import FoodDetail from './pages/FoodDetail/FoodDetail';
 import About from './pages/About/About';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
+import Delivery from './pages/Delivery/Delivery';
 
 const App = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -53,6 +54,7 @@ const App = () => {
                     <Route path="/food/:id" element={<FoodDetail />} />
                     <Route path="/about" element={<About />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
+                    <Route path="/delivery" element={<Delivery />} />
                 </Routes>
             </div>
             <Footer />

@@ -64,8 +64,9 @@ const Navbar = ({ setShowLogin }) => {
             <ul className="navbar-menu">
                 <Link to="/" onClick={() => setMenu("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
                 <a href="#explore-menu" onClick={() => setMenu("Menu")} className={menu === "Menu" ? "active" : ""}>Menu</a>
-                <a href="#app-download" onClick={() => setMenu("Mobile-App")} className={menu === "Mobile-App" ? "active" : ""}>Mobile-App</a>
-                <a href="#footer" onClick={() => setMenu("Contact us")} className={menu === "Contact us" ? "active" : ""}>Contact us</a>
+                <Link to="/about" onClick={() => setMenu("About")} className={menu === "About" ? "active" : ""}>About</Link>
+                <Link to="/delivery" onClick={() => setMenu("Delivery")} className={menu === "Delivery" ? "active" : ""}>Delivery</Link>
+                <a href="#footer" onClick={() => setMenu("Contact us")} className={menu === "Contact us" ? "active" : ""}>Contact</a>
             </ul>
 
             {/* Right Icons */}
@@ -158,8 +159,10 @@ const Navbar = ({ setShowLogin }) => {
                 <div className="mobile-menu">
                     <Link to="/" onClick={() => { setMenu("Home"); closeMenu(); }} className={menu === "Home" ? "active" : ""}>Home</Link>
                     <a href="#explore-menu" onClick={() => { setMenu("Menu"); closeMenu(); }} className={menu === "Menu" ? "active" : ""}>Menu</a>
-                    <a href="#app-download" onClick={() => { setMenu("Mobile-App"); closeMenu(); }} className={menu === "Mobile-App" ? "active" : ""}>Mobile-App</a>
-                    <a href="#footer" onClick={() => { setMenu("Contact us"); closeMenu(); }} className={menu === "Contact us" ? "active" : ""}>Contact us</a>
+                    <Link to="/about" onClick={() => { setMenu("About"); closeMenu(); }} className={menu === "About" ? "active" : ""}>About</Link>
+                    <Link to="/delivery" onClick={() => { setMenu("Delivery"); closeMenu(); }} className={menu === "Delivery" ? "active" : ""}>Delivery</Link>
+                    <Link to="/privacy-policy" onClick={() => { setMenu("Privacy"); closeMenu(); }} className={menu === "Privacy" ? "active" : ""}>Privacy Policy</Link>
+                    <a href="#footer" onClick={() => { setMenu("Contact us"); closeMenu(); }} className={menu === "Contact us" ? "active" : ""}>Contact</a>
                     <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
                 </div>
             )}

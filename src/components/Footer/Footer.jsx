@@ -11,14 +11,6 @@ const Footer = () => {
     setTimeout(() => window.scrollTo({ top: 0, behavior: "smooth" }), 100);
   }
 
-  const scrollToSection = (id) => {
-    navigate("/");
-    setTimeout(() => {
-      const el = document.getElementById(id);
-      if (el) el.scrollIntoView({ behavior: "smooth", block: "start" });
-    }, 100);
-  }
-
   return (
     <div className="footer" id="footer">
       <div className="footer-content">
@@ -51,7 +43,7 @@ const Footer = () => {
           <ul>
             <li onClick={scrollToTop}>Home</li>
             <li><Link to="/about">About us</Link></li>
-            <li onClick={() => scrollToSection("app-download")}>Delivery</li>
+            <li><Link to="/delivery">Delivery</Link></li>
             <li><Link to="/privacy-policy">Privacy Policy</Link></li>
           </ul>
         </div>
