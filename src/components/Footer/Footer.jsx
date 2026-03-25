@@ -17,7 +17,7 @@ const Footer = () => {
 
         {/* Left */}
         <div className="footer-content-left">
-          <img src={assets.logo} alt="logo" />
+          <img src={assets.logo} alt="logo" style={{cursor: "pointer"}} onClick={scrollToTop} />
           <p>Tomato is more than just a delivery service.
             It's a commitment to the vine-ripened quality your
             kitchen deserves. We bridge the gap between your

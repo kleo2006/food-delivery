@@ -56,7 +56,7 @@ const Navbar = ({ setShowLogin }) => {
     return (
         <div className="navbar">
             {/* Logo */}
-            <Link to="/" onClick={closeMenu}>
+            <Link to="/" onClick={() => { closeMenu(); window.scrollTo({ top: 0, behavior: "smooth" }); }}>
                 <img src={assets.logo} alt="navbar" className="logo" />
             </Link>
 

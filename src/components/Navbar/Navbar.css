@@ -105,12 +105,17 @@
 } */
 
   /* ── Base Navbar ── */
+/* ── Base Navbar ── */
 .navbar {
     display: flex;
     padding: 20px 0px;
     justify-content: space-between;
     align-items: center;
-    position: relative;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    background-color: white;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
 }
 
 .navbar .logo {
@@ -444,5 +449,9 @@
 
     .navbar .logo {
         width: 120px;
+    }
+
+    .navbar {
+        padding: 16px 20px;
     }
 }
