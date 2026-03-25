@@ -39,6 +39,12 @@ const LoginPopup = ({ setShowLogin }) => {
                 setToken(result.token);
                 localStorage.setItem("token", result.token);
                 setShowLogin(false);
+                if (result.success) {
+    setToken(result.token);
+    localStorage.setItem("token", result.token);
+    setShowLogin(false);
+    window.location.reload();
+}
             } else {
                 setError(result.message);
             }
@@ -49,6 +55,7 @@ const LoginPopup = ({ setShowLogin }) => {
 
         setLoading(false);
     }
+    
 
     return (
         <div className="login-popup">
