@@ -69,7 +69,7 @@ const StoreContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(null);
 
-  const url = "http://localhost:4000";
+  const url = "https://food-delivery-backend-6ru5.onrender.com";
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
