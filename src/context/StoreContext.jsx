@@ -57,9 +57,8 @@
 // };
 
 // export default StoreContextProvider;
-import { createContext } from "react";
+import { createContext, useState } from "react";
 import { food_list } from "../assets/frontend_assets/assets";
-import { useState } from "react";
 
 export const StoreContext = createContext(null);
 
@@ -67,6 +66,10 @@ const StoreContextProvider = ({ children }) => {
 
   const [cartItems, setCartItems] = useState({});
   const [searchQuery, setSearchQuery] = useState("");
+  const [token, setToken] = useState(localStorage.getItem("token") || "");
+  const [user, setUser] = useState(null);
+
+  const url = "http://localhost:4000";
 
   const addToCart = (itemId) => {
     if (!cartItems[itemId]) {
@@ -91,6 +94,12 @@ const StoreContextProvider = ({ children }) => {
     return totalAmount;
   }
 
+  const logout = () => {
+    setToken("");
+    setUser(null);
+    localStorage.removeItem("token");
+  }
+
   const contextValue = {
     food_list,
     cartItems,
@@ -99,7 +108,13 @@ const StoreContextProvider = ({ children }) => {
     removeFromCart,
     getTotalCartAmount,
     searchQuery,
-    setSearchQuery
+    setSearchQuery,
+    token,
+    setToken,
+    user,
+    setUser,
+    url,
+    logout
   };
 
   return (

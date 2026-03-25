@@ -38,7 +38,7 @@ const Navbar = ({ setShowLogin }) => {
     const [menu, setMenu] = useState("Home");
     const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
     const [showSearch, setShowSearch] = useState(false);
-    const { getTotalCartAmount, searchQuery, setSearchQuery } = useContext(StoreContext);
+    const { getTotalCartAmount, searchQuery, setSearchQuery, token, logout } = useContext(StoreContext);
     const navigate = useNavigate();
 
     const toggleMobileMenu = () => setMobileMenuOpen(!mobileMenuOpen);
@@ -112,7 +112,9 @@ const Navbar = ({ setShowLogin }) => {
                     <div className={getTotalCartAmount() === 0 ? "" : "dot"}></div>
                 </div>
 
-                <button onClick={() => setShowLogin(true)}>Sign in</button>
+                <button onClick={() => token ? logout() : setShowLogin(true)}>
+                    {token ? "Logout" : "Sign in"}
+                </button>
             </div>
 
             {/* Mobile Icons (search icon + hamburger) */}
@@ -163,7 +165,9 @@ const Navbar = ({ setShowLogin }) => {
                     <a href="#delivery-section" onClick={() => { setMenu("Delivery"); closeMenu(); }} className={menu === "Delivery" ? "active" : ""}>Delivery</a>
                     <a href="#privacy-section" onClick={() => { setMenu("Privacy"); closeMenu(); }} className={menu === "Privacy" ? "active" : ""}>Privacy Policy</a>
                     <a href="#footer" onClick={() => { setMenu("Contact"); closeMenu(); }} className={menu === "Contact" ? "active" : ""}>Contact</a>
-                    <button onClick={() => { setShowLogin(true); closeMenu(); }}>Sign in</button>
+                    <button onClick={() => { token ? logout() : setShowLogin(true); closeMenu(); }}>
+                        {token ? "Logout" : "Sign in"}
+                    </button>
                 </div>
             )}
         </div>
