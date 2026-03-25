@@ -37,7 +37,7 @@
 // }
 
 // export default FoodItem
-import React, { useContext, useState } from 'react'
+import React, { useContext } from 'react'
 import "./FoodItem.css"
 import { assets } from '../../assets/frontend_assets/assets'
 import { StoreContext } from '../../context/StoreContext';
@@ -45,17 +45,12 @@ import { useNavigate } from 'react-router-dom';
 
 const FoodItem = ({ id, name, description, price, image }) => {
     const { cartItems, addToCart, removeFromCart } = useContext(StoreContext);
-    const [quantity, setQuantity] = useState(0);
     const navigate = useNavigate();
 
-    const increaseQty = () => setQuantity((prev) => prev + 1);
-    const decreaseQty = () => setQuantity((prev) => (prev > 0 ? prev - 1 : 0));
+    const quantity = cartItems[id] || 0;
 
     const handleAddToCart = () => {
         if (quantity === 0) return;
-        for (let i = 0; i < quantity; i++) {
-            addToCart(id);
-        }
         navigate(`/food/${id}`);
         window.scrollTo({ top: 0, behavior: "smooth" });
     }
@@ -81,9 +76,9 @@ const FoodItem = ({ id, name, description, price, image }) => {
 
                 {/* Quantity Selector */}
                 <div className="food-item-quantity-selector">
-                    <img onClick={decreaseQty} src={assets.remove_icon_red} alt="decrease" />
+                    <img onClick={() => removeFromCart(id)} src={assets.remove_icon_red} alt="decrease" />
                     <p>{quantity}</p>
-                    <img onClick={increaseQty} src={assets.add_icon_green} alt="increase" />
+                    <img onClick={() => addToCart(id)} src={assets.add_icon_green} alt="increase" />
                 </div>
 
                 {/* Add to Cart Button - only shows when quantity > 0 */}

@@ -69,14 +69,13 @@ const StoreContextProvider = ({ children }) => {
   const [token, setToken] = useState(localStorage.getItem("token") || "");
   const [user, setUser] = useState(null);
 
-  const url = "https://food-delivery-backend-6ru5.onrender.com";
+  const url = "http://localhost:4000";
 
-  const addToCart = (itemId) => {
-    if (!cartItems[itemId]) {
-      setCartItems((prev) => ({ ...prev, [itemId]: 1 }))
-    } else {
-      setCartItems((prev) => ({ ...prev, [itemId]: prev[itemId] + 1 }))
-    }
+  const addToCart = (itemId, qty = 1) => {
+    setCartItems((prev) => ({
+      ...prev,
+      [itemId]: (prev[itemId] || 0) + qty
+    }))
   }
 
   const removeFromCart = (itemId) => {
