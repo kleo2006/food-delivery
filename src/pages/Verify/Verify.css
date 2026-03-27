@@ -1,0 +1,47 @@
+.verify {
+    min-height: 60vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.verify-container {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 16px;
+    padding: 40px;
+    border-radius: 16px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+}
+
+.verify-icon {
+    font-size: 60px;
+}
+
+.verify-container h2 {
+    font-size: 28px;
+    font-weight: 700;
+    color: #262626;
+}
+
+.verify-container p {
+    font-size: 16px;
+    color: #676767;
+}
+
+.verify-spinner {
+    width: 40px;
+    height: 40px;
+    border: 4px solid #f0f0f0;
+    border-top: 4px solid tomato;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    margin-top: 10px;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}

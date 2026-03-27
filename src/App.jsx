@@ -38,6 +38,7 @@ import FoodDetail from './pages/FoodDetail/FoodDetail';
 import About from './pages/About/About';
 import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Delivery from './pages/Delivery/Delivery';
+import Verify from './pages/Verify/Verify';
 
 const App = () => {
     const [showLogin, setShowLogin] = useState(false);
@@ -55,6 +56,7 @@ const App = () => {
                     <Route path="/about" element={<About />} />
                     <Route path="/privacy-policy" element={<PrivacyPolicy />} />
                     <Route path="/delivery" element={<Delivery />} />
+                    <Route path="/verify" element={<Verify />} />
                 </Routes>
             </div>
             <Footer />
