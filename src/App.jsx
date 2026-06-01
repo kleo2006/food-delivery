@@ -40,11 +40,14 @@ import PrivacyPolicy from './pages/PrivacyPolicy/PrivacyPolicy';
 import Delivery from './pages/Delivery/Delivery';
 import Verify from './pages/Verify/Verify';
 
+
+
 const App = () => {
     const [showLogin, setShowLogin] = useState(false);
 
     return (
         <>
+       
             {showLogin ? <LoginPopup setShowLogin={setShowLogin} /> : <></>}
             <div className="app">
                 <Navbar setShowLogin={setShowLogin} />

@@ -62,7 +62,11 @@ const Navbar = ({ setShowLogin }) => {
 
             {/* Desktop Menu */}
             <ul className="navbar-menu">
-                <Link to="/" onClick={() => setMenu("Home")} className={menu === "Home" ? "active" : ""}>Home</Link>
+                <a href="#" onClick={(e) => {
+                    e.preventDefault();
+                    setMenu("Home");
+                    window.scrollTo({ top: 0, behavior: "smooth" });
+                }} className={menu === "Home" ? "active" : ""}>Home</a>
                 <a href="#explore-menu" onClick={() => setMenu("Menu")} className={menu === "Menu" ? "active" : ""}>Menu</a>
                 <a href="#about-section" onClick={() => setMenu("About")} className={menu === "About" ? "active" : ""}>About</a>
                 <a href="#delivery-section" onClick={() => setMenu("Delivery")} className={menu === "Delivery" ? "active" : ""}>Delivery</a>
@@ -159,7 +163,12 @@ const Navbar = ({ setShowLogin }) => {
             {/* Mobile Dropdown Menu */}
             {mobileMenuOpen && (
                 <div className="mobile-menu">
-                    <Link to="/" onClick={() => { setMenu("Home"); closeMenu(); }} className={menu === "Home" ? "active" : ""}>Home</Link>
+                    <a href="#" onClick={(e) => {
+                        e.preventDefault();
+                        setMenu("Home");
+                        closeMenu();
+                        window.scrollTo({ top: 0, behavior: "smooth" });
+                    }} className={menu === "Home" ? "active" : ""}>Home</a>
                     <a href="#explore-menu" onClick={() => { setMenu("Menu"); closeMenu(); }} className={menu === "Menu" ? "active" : ""}>Menu</a>
                     <a href="#about-section" onClick={() => { setMenu("About"); closeMenu(); }} className={menu === "About" ? "active" : ""}>About</a>
                     <a href="#delivery-section" onClick={() => { setMenu("Delivery"); closeMenu(); }} className={menu === "Delivery" ? "active" : ""}>Delivery</a>
